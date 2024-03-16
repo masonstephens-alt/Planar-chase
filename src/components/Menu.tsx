@@ -1,26 +1,18 @@
 import React from 'react';
-import { IonMenu, IonContent, IonList, IonItem, IonIcon, IonLabel } from '@ionic/react';
-import { homeOutline, heartOutline } from 'ionicons/icons';
-import { useHistory } from 'react-router-dom';
+import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel } from '@ionic/react';
 
 const Menu: React.FC = () => {
-  const history = useHistory();
-
-  const navigateTo = (path: string) => {
-    history.push(path);
-  };
-
   return (
-    <IonMenu contentId="main">
+    <IonMenu side="start" contentId="main">
+      <IonHeader>
+        <IonToolbar color="primary">
+          <IonTitle>Menu</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
         <IonList>
-          <IonItem button onClick={() => navigateTo('/home')}>
-            <IonIcon icon={homeOutline} slot="start" />
-            <IonLabel>Home</IonLabel>
-          </IonItem>
-          <IonItem button onClick={() => navigateTo('/favorites')}>
-            <IonIcon icon={heartOutline} slot="start" />
-            <IonLabel>Favorites</IonLabel>
+          <IonItem>
+            <IonLabel>Test</IonLabel>
           </IonItem>
         </IonList>
       </IonContent>

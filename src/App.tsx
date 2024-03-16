@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonApp, IonMenu, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { useEffect } from 'react';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import Home from './pages/Home';
 import Menu from './components/Menu';
+import { setupIonicReact } from '@ionic/react';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,6 +27,8 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+setupIonicReact();
+
 const App: React.FC = () => {
   useEffect(() => {
     // Lock the screen orientation to landscape mode when the component mounts
@@ -34,8 +38,10 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <Menu /> {/* Include the Menu component */}
-        <IonRouterOutlet id="main">
+        <IonMenu contentId="main">
+          <Menu />
+        </IonMenu>
+        <IonRouterOutlet onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           <Route exact path="/home">
             <Home />
           </Route>

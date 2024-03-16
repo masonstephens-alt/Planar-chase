@@ -1,0 +1,15 @@
+/* Menu.css */
+.menu-container {
+    width: 250px;
+  }
+  
+  .menu-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-item ion-icon {
+    margin-right: 10px;
+  }
+  

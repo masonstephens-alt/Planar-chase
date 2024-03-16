@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ImageComponent from '../components/ImageComponent';
-import { IonButton, IonMenuButton } from '@ionic/react';
+import { IonButton, IonMenuButton, IonIcon } from '@ionic/react';
 import './Home.css'; // Import custom CSS file for Home component
+import { menuOutline } from 'ionicons/icons';
 
 const Home: React.FC = () => {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -20,6 +21,9 @@ const Home: React.FC = () => {
         // Extract image URLs from the response
         const urls = data.data.map((card: any) => card.image_uris.normal);
         setImageUrls(urls);
+        // Select a random image index
+        const randomIndex = Math.floor(Math.random() * urls.length);
+        setCurrentImageIndex(randomIndex);
       } catch (error) {
         console.error('Error fetching images:', error);
       }
@@ -34,10 +38,6 @@ const Home: React.FC = () => {
     setCurrentImageIndex(newIndex);
   };
 
-  const addToFavorites = () => {
-    setFavoriteImageIndices([...favoriteImageIndices, currentImageIndex]);
-  };
-
   const goToLastDisplayedImage = () => {
     if (lastDisplayedImageIndex !== null) {
       setCurrentImageIndex(lastDisplayedImageIndex);
@@ -46,11 +46,13 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
-      <IonMenuButton autoHide={false} className="menu-button" />
+      <IonMenuButton autoHide={false} className="menu-button" slot="start">
+        <IonIcon icon={menuOutline} />
+      </IonMenuButton>
+
       <ImageComponent url={imageUrls[currentImageIndex]} />
       <div className="button-container">
         <IonButton onClick={changeImage}>Planeswalk</IonButton>
-        <IonButton onClick={addToFavorites}>Add to Favorites</IonButton>
         <IonButton onClick={goToLastDisplayedImage}>Previous Plane</IonButton>
       </div>
     </div>
