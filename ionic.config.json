@@ -1,0 +1,7 @@
+{
+  "name": "Planar Chase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
