@@ -1,0 +1,26 @@
+/* Home.css */
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+.button-container {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-container {
+    position: relative;
+  }
+  
+  .menu-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999; /* Ensure it's above other elements */
+  }
+  

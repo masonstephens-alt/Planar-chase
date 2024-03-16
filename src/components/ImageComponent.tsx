@@ -1,4 +1,6 @@
+// ImageComponent.tsx
 import React from 'react';
+import './ImageComponent.css';
 
 interface ImageComponentProps {
   url: string;
@@ -6,8 +8,11 @@ interface ImageComponentProps {
 
 const ImageComponent: React.FC<ImageComponentProps> = ({ url }) => {
   return (
-    <div>
-      <img src={url} alt="Random Image" />
+    <div className="container">
+      <img src={url} alt="Image" className="image" />
+      <div className="buttons">
+        {/* Your buttons go here */}
+      </div>
     </div>
   );
 };
