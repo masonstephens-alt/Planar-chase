@@ -46,9 +46,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
-      <IonMenuButton autoHide={false} className="menu-button" slot="start">
+{/*       <IonMenuButton autoHide={false} className="menu-button" slot="start">
         <IonIcon icon={menuOutline} />
-      </IonMenuButton>
+      </IonMenuButton> */}
 
       <ImageComponent url={imageUrls[currentImageIndex]} />
       <div className="button-container">

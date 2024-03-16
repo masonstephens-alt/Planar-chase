@@ -6,7 +6,8 @@ import { ScreenOrientation } from '@capacitor/screen-orientation';
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import { setupIonicReact } from '@ionic/react';
-
+/* Keep awake */
+import { KeepAwake } from '@capacitor-community/keep-awake';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,6 +34,12 @@ const App: React.FC = () => {
   useEffect(() => {
     // Lock the screen orientation to landscape mode when the component mounts
     ScreenOrientation.lock({ orientation: 'landscape' });
+    // Keep the screen awake when the app is active
+    KeepAwake.keepAwake();
+    return () => {
+      // Allow the screen to sleep when the app is closed
+      KeepAwake.allowSleep();
+    };
   }, []); // Run this effect only once when the component mounts
 
   return (
