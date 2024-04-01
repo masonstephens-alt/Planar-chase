@@ -11,7 +11,7 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ url }) => {
     <div className="container">
       <img src={url} alt="Image" className="image" />
       <div className="buttons">
-        {/* Your buttons go here */}
+        {/* Buttons go here */}
       </div>
     </div>
   );

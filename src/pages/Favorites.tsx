@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImageComponent from '../components/ImageComponent';
 import { IonButton, IonMenuButton } from '@ionic/react';
-import './Home.css'; // Import custom CSS file for Home component
+import './Home.css';
 
 const Home: React.FC = () => {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
